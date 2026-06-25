@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Lưu Long Hải — Portfolio</title>
+    <meta name="description" content="Frontend Developer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="public/css/styles.css" />
+  </head>
+
+  <body class="grain">
+    <!-- ============ NAVBAR ============ -->
+    <header class="navbar" id="navbar">
+      <div class="navbar-inner">
+        <a href="#top" class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <polygon
+                points="10,1 19,6 19,14 10,19 1,14 1,6"
+                stroke="currentColor"
+                stroke-width="1.5"
+                fill="none"
+              />
+              <circle cx="10" cy="10" r="2.5" fill="currentColor" />
+            </svg>
+          </span>
+          LONG HẢI
+        </a>
+        <nav class="navlinks">
+          <a href="#skills">Kỹ năng</a>
+          <a href="#education">Học vấn</a>
+          <a href="#military">Quân sự</a>
+          <a href="#contact">Liên hệ</a>
+        </nav>
+        <a href="#contact" class="btn btn-ghost">Kết nối ngay</a>
+      </div>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="scroll-animation" id="top">
+      <div class="hero-sticky">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-vignette" aria-hidden="true"></div>
+
+        <!-- HUD corners -->
+        <svg
+          class="hud-corner hud-tl"
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path d="M2 28 L2 2 L28 2" stroke="currentColor" stroke-width="1.5" />
+        </svg>
+        <svg
+          class="hud-corner hud-tr"
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M0 2 L28 2 L28 28"
+            stroke="currentColor"
+            stroke-width="1.5"
+          />
+        </svg>
+        <svg
+          class="hud-corner hud-bl"
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M2 0 L2 28 L28 28"
+            stroke="currentColor"
+            stroke-width="1.5"
+          />
+        </svg>
+        <svg
+          class="hud-corner hud-br"
+          width="28"
+          height="28"
+          viewBox="0 0 28 28"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M6 28 L28 28 L28 6"
+            stroke="currentColor"
+            stroke-width="1.5"
+          />
+        </svg>
+
+        <!-- telemetry -->
+        <div class="telemetry telemetry-left">
+          <span class="dot"></span>PORTFOLIO — LIVE
+        </div>
+        <div class="telemetry telemetry-right">
+          SYNC <span id="sync-readout">97.4%</span><span class="dot"></span>
+        </div>
+
+        <!-- frame counter -->
+        <div class="frame-counter" id="frame-counter-wrap">
+          <span class="frame-counter-label">RENDER INDEX</span>
+          <span class="frame-counter-num" id="frame-counter">001</span>
+        </div>
+
+        <!-- hero headline -->
+        <div class="hero-copy" id="hero-copy">
+          <div class="hero-cta-row">
+            <a href="#skills" class="btn btn-primary-hero">Xem kỹ năng</a>
+            <a href="#contact" class="btn btn-outline-hero">Liên hệ</a>
+          </div>
+          <span class="eyebrow"
+            ><span class="eyebrow-dot"></span>FRONTEND DEVELOPER</span
+          >
+          <h1>Lưu<br /><span class="accent-text">Long Hải</span></h1>
+          <p>Sinh viên - Cao đẳng Công nghệ Thủ Đức.</p>
+          
+          <p>Với sự dẫn dắt của</p>
+          <h3><span class="accent-text">Nguyễn Huy Hoàng</span></h3>
+          <p>Cố vấn học tập - Giảng viên bộ môn.</p>
+        </div>
+
+        <!-- story cards (desktop) -->
+        <div class="story-card story-card-1" data-card="c1">
+          <p class="story-quote">
+            "Mỗi dòng code là một bước xây dựng tương lai."
+          </p>
+          <div class="story-meta">
+            <span>Phase 01</span
+            ><span class="story-meta-accent">LƯU LONG HẢI</span>
+          </div>
+        </div>
+        <div class="story-card story-card-2" data-card="c2">
+          <p class="story-quote">
+            "Truyền đạt kiến thức là nghệ thuật cao nhất của Giảng viên."
+          </p>
+          <div class="story-meta">
+            <span>Phase 02</span
+            ><span class="story-meta-accent">NGUYỄN HUY HOÀNG</span>
+          </div>
+        </div>
+        <div class="story-card story-card-3" data-card="c3">
+          <p class="story-quote">
+            "Kỷ luật từ quân đội, sáng tạo từ lập trình."
+          </p>
+          <div class="story-meta">
+            <span>Phase 03</span
+            ><span class="story-meta-accent">Chiến binh &amp; Dev</span>
+          </div>
+        </div>
+
+        <!-- mobile cards -->
+        <div class="story-card-mobile-wrap">
+          <div class="story-card-mobile" data-card="c1">
+            <p class="story-quote">
+              "Mỗi dòng code là một bước xây dựng tương lai."
+            </p>
+            <div class="story-meta">
+              <span>Phase 01</span
+              ><span class="story-meta-accent">LƯU LONG HẢI</span>
+            </div>
+          </div>
+          <div class="story-card-mobile" data-card="c2">
+            <p class="story-quote">
+              "Truyền đạt kiến thức là nghệ thuật cao nhất của Giảng viên."
+            </p>
+            <div class="story-meta">
+              <span>Phase 02</span
+              ><span class="story-meta-accent">NGUYỄN HUY HOÀNG</span>
+            </div>
+          </div>
+          <div class="story-card-mobile" data-card="c3">
+            <p class="story-quote">
+              "Kỷ luật từ quân đội, sáng tạo từ lập trình."
+            </p>
+            <div class="story-meta">
+              <span>Phase 03</span
+              ><span class="story-meta-accent">Chiến binh &amp; Dev</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- progress footer -->
+        <div class="hero-footer">
+          <div class="progress-track">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <div class="hero-footer-row">
+            <span id="seq-readout">SEQ 001 / 121</span>
+
+            <span class="scroll-hint">Scroll <span class="arrow">↓</span></span>
+          </div>
+        </div>
+
+        <!-- loading -->
+        <div class="loading-overlay" id="loading-overlay">
+          <span class="eyebrow"
+            ><span class="eyebrow-dot"></span>ĐANG TẢI PORTFOLIO</span
+          >
+          <div class="loading-track">
+            <div class="loading-fill" id="loading-fill"></div>
+          </div>
+          <p class="loading-text" id="loading-text">Đang tải · 0%</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section-skills" id="skills">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-label">01 / Chuyên môn</span>
+          <h2 class="section-title">
+            Kỹ năng<br /><span class="accent-text">chuyên môn</span>
+          </h2>
+          <p class="section-subtitle">
+            Đã được đào tạo và có kiến thức từ giao diện người dùng đến hệ thống
+            backend mạnh mẽ.
+          </p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card skill-card-featured">
+            <div class="skill-card-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <polyline
+                  points="8,20 2,14 8,8"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <polyline
+                  points="20,8 26,14 20,20"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <line
+                  x1="16"
+                  y1="5"
+                  x2="12"
+                  y2="23"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <h3>Frontend Development</h3>
+            <p>
+              HTML5, CSS, JavaScript, React.js, Vue.js, TypeScript. Xây dựng
+              UI/UX chuẩn responsive, tối ưu hiệu năng, animation mượt mà.
+            </p>
+            <div class="skill-tags">
+              <span>React</span>
+              <span>Vue.js</span>
+              <span>TypeScript</span>
+              <span>Tailwind CSS</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <rect
+                  x="3"
+                  y="3"
+                  width="22"
+                  height="22"
+                  rx="4"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+                <path
+                  d="M9 14h10M9 10h6M9 18h8"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <h3>Backend Development</h3>
+            <p>
+              Node.js, RESTful API. Thiết kế kiến trúc hệ thống scalable và bảo
+              mật cao.
+            </p>
+            <div class="skill-tags">
+              <span>Node.js</span>
+              <span>REST API</span>
+              <span>MySQL</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <ellipse
+                  cx="14"
+                  cy="7"
+                  rx="10"
+                  ry="3.5"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+                <path
+                  d="M4 7 v7 c0 1.9 4.5 3.5 10 3.5 s10 -1.6 10 -3.5 V7"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+                <path
+                  d="M4 14 v7 c0 1.9 4.5 3.5 10 3.5 s10 -1.6 10 -3.5 V14"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+              </svg>
+            </div>
+            <h3>Database</h3>
+            <p>
+              MySQL. Thiết kế schema tối ưu, query hiệu năng cao và quản lý dữ
+              liệu quy mô lớn.
+            </p>
+            <div class="skill-tags">
+              <span>MySQL</span>
+            </div>
+          </div>
+
+          <div class="skill-card skill-card-wide">
+            <div class="skill-card-icon">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <rect
+                  x="3"
+                  y="4"
+                  width="22"
+                  height="15"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+                <line
+                  x1="14"
+                  y1="19"
+                  x2="14"
+                  y2="24"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+                <line
+                  x1="9"
+                  y1="24"
+                  x2="19"
+                  y2="24"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                />
+                <polyline
+                  points="8,10 12,14 20,8"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <h3>Kiến thức, kỹ năng</h3>
+            <p>
+              Các kiến thức, kỹ năng lập trình web được dẫn dắt bởi Thầy -
+              NGUYỄN HUY HOÀNG.
+            </p>
+            <div class="skill-tags">
+              <span>Giảng dạy</span><span>Cố vấn học tập</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EFFECTS SHOWCASE ============ -->
+    <section class="section-effects" id="effects">
+      <div class="section-inner">
+        <div class="section-header section-header-dark">
+          <span class="section-label section-label-light"
+            >02 / Hiệu ứng Web</span
+          >
+          <h2 class="section-title section-title-light">
+            Hiệu ứng trong<br /><span class="accent-text"
+              >Website Portfolio</span
+            >
+          </h2>
+          <p class="section-subtitle section-subtitle-light">
+            Các kỹ thuật animation &amp; interaction nâng cao tạo nên trải
+            nghiệm người dùng đáng nhớ.
+          </p>
+        </div>
+        <div class="effects-grid">
+          <div class="effect-item">
+            <div class="effect-num">01</div>
+            <h4>Scroll-Driven Frame Sequence</h4>
+            <p>
+              Canvas animation đồng bộ theo vị trí scroll, tái tạo cảm giác 3D
+              từ chuỗi ảnh tĩnh như video phát ngược.
+            </p>
+          </div>
+          <div class="effect-item">
+            <div class="effect-num">02</div>
+            <h4>Glassmorphism UI</h4>
+            <p>
+              Backdrop blur, opacity layers và border glow tạo ra giao diện kính
+              mờ sang trọng, layered depth effect.
+            </p>
+          </div>
+          <div class="effect-item">
+            <div class="effect-num">03</div>
+            <h4>Smooth Scroll (Lenis)</h4>
+            <p>
+              Inertia-based scrolling với lerp easing cho cảm giác cuộn mượt mà
+              như native app, không lag trên mọi thiết bị.
+            </p>
+          </div>
+          <div class="effect-item">
+            <div class="effect-num">04</div>
+            <h4>HUD Telemetry Overlay</h4>
+            <p>
+              Real-time readout bao gồm frame counter, sync percentage và
+              progress bar.
+            </p>
+          </div>
+          <div class="effect-item">
+            <div class="effect-num">05</div>
+            <h4>Grain Texture Overlay</h4>
+            <p>
+              Sử dụng SVG feTurbulence để tạo grain texture, giúp tăng tactility
+              và organic depth, loại bỏ hoàn toàn cảm giác 'digital sterility'
+              cho giao diện.
+            </p>
+          </div>
+          <div class="effect-item">
+            <div class="effect-num">06</div>
+            <h4>Staggered Card Reveal</h4>
+            <p>
+              Các thẻ nội dung (story cards) tự động xuất hiện và ẩn đi theo
+              tiến trình cuộn trang, được tinh chỉnh theo logic kể chuyện nhằm
+              tối ưu hóa cảm xúc người xem.
+            </p>
+          </div>
+          <div class="effect-item">
+            <div class="effect-num">07</div>
+            <h4>DPR-Aware Canvas Rendering</h4>
+            <p>
+              Canvas resolution tự động nhân với devicePixelRatio cho hình ảnh
+              cực nét trên màn hình Retina 4K.
+            </p>
+          </div>
+          <div class="effect-item">
+            <div class="effect-num">08</div>
+            <h4>Gradient Accent System</h4>
+            <p>
+              Teal→Indigo gradient nhất quán xuyên suốt — từ text highlights đến
+              glow shadows và progress indicators.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section class="section-education" id="education">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="section-label">03 / Học vấn</span>
+          <h2 class="section-title">
+            Nền tảng<br /><span class="accent-text">học thuật</span>
+          </h2>
+        </div>
+        <div class="edu-timeline">
+          <div class="edu-item">
+            <div class="edu-year">2026</div>
+            <div class="edu-content">
+              <div class="edu-badge">Sinh viên</div>
+              <h3>Cao đẳng Công nghệ Thủ Đức</h3>
+              <p>
+                Đang theo học ngành Công nghệ Thông tin tại [Trường Cao đẳng
+                công nghệ Thủ Đức]. Có nền tảng kiến thức vững chắc về thuật
+                toán, cơ sở dữ liệu và kinh nghiệm thiết kế ứng dụng Web
+                Full-stack. Tôi không ngừng nâng cao kỹ năng qua việc xây dựng
+                các dự án web với hiệu năng và trải nghiệm người dùng tối ưu.
+              </p>
+              <div class="edu-tags">
+                <span>Công nghệ Thông tin</span><span>Lập trình Web</span
+                ><span>Full-stack</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MILITARY ============ -->
+    <section class="section-military" id="military">
+      <div class="section-inner">
+        <div class="section-header section-header-dark">
+          <span class="section-label section-label-light">04 / Quân sự</span>
+          <h2 class="section-title section-title-light">
+            Quân đội<br /><span class="accent-text">Nhân dân Việt Nam</span>
+          </h2>
+          <p class="section-subtitle section-subtitle-light">
+            Kỷ luật, bản lĩnh và tinh thần đồng đội — những giá trị định hình
+            con người và sự nghiệp.
+          </p>
+        </div>
+        <div class="military-grid">
+          <div class="military-card">
+            <div class="military-icon">⚔️</div>
+            <h4>Chiến thuật &amp; Chiến đấu</h4>
+            <p>
+              Được đào tạo bài bản các kỹ năng chiến đấu cá nhân, chiến thuật
+              đội hình, sử dụng vũ khí và ứng phó tình huống khẩn cấp theo quy
+              chuẩn Quân đội Nhân dân Việt Nam.
+            </p>
+          </div>
+          <div class="military-card">
+            <div class="military-icon">🏥</div>
+            <h4>Cứu thương chiến trường</h4>
+            <p>
+              Hoàn thành khóa đào tạo cứu thương quân y — sơ cứu khẩn cấp, băng
+              bó vết thương, vận chuyển thương binh và xử lý các tình huống y tế
+              trong điều kiện chiến đấu.
+            </p>
+          </div>
+          <div class="military-card">
+            <div class="military-icon">🛡️</div>
+            <h4>Kỷ luật &amp; Lãnh đạo</h4>
+            <p>
+              Rèn luyện tinh thần kỷ luật thép, khả năng chịu đựng áp lực cao,
+              tư duy lãnh đạo và tinh thần tập thể — nền tảng cho mọi thành công
+              trong sự nghiệp.
+            </p>
+          </div>
+          <div class="military-card">
+            <div class="military-icon">🧭</div>
+            <h4>Định hướng &amp; Sinh tồn</h4>
+            <p>
+              Kỹ năng định hướng địa bàn, đọc bản đồ địa hình, sinh tồn trong
+              môi trường khắc nghiệt và làm việc nhóm dưới áp lực cao trong điều
+              kiện thiếu thốn.
+            </p>
+          </div>
+        </div>
+        <div class="military-quote">
+          <blockquote>
+            "Trong quân đội, tôi học được rằng không có gì là không thể nếu có
+            kỷ luật, đồng đội và ý chí không bỏ cuộc. Những giá trị đó tôi mang
+            vào từng dòng code và từng buổi học."
+          </blockquote>
+          <cite>— LƯU LONG HẢI</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section-contact" id="contact">
+      <div class="section-inner">
+        <div class="contact-card">
+          <span class="eyebrow eyebrow-dark"
+            ><span class="eyebrow-dot"></span>SẴN SÀNG HỢP TÁC</span
+          >
+          <h2>
+            Cùng xây dựng<br /><span class="accent-text"
+              >điều gì đó tuyệt vời.</span
+            >
+          </h2>
+          <p class="contact-text">
+            Bạn cần một website portfolio ấn tượng, một hệ thống web full-stack,
+            bạn đang tìm kiếm người đồng nghiệp — tôi sẵn sàng đồng hành cùng
+            bạn.
+          </p>
+          <div class="contact-actions">
+            <a href="#" class="btn btn-primary">Gửi email</a>
+            <a href="#" target="_blank" class="btn btn-outline">GitHub</a>
+          </div>
+          <div class="contact-meta">
+            <span>📍 TP. Hồ Chí Minh, Việt Nam</span>
+            <span>🏫 Cao đẳng Công nghệ Thủ Đức</span>
+            <span>💼 Mở cửa với cơ hội mới</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span class="footer-brand">LƯU LONG HẢI</span>
+        <span class="footer-copy"
+          >© 2026 · Frontend Developer &amp; College student · CĐ Công nghệ Thủ
+          Đức</span
+        >
+        <a href="#top" class="footer-top">↑ Top</a>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="public/js/script.js"></script>
+  </body>
+</html>
